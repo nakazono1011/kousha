@@ -67,6 +67,8 @@ def main():
 
             time.sleep(2)
             vacancies = driver.find_elements(By.CLASS_NAME, "vacancy_box")
+            count = len(vacancies)
+            logger.info(f"[物件数] {count}件")
 
             for vacancy in vacancies:
                 title = vacancy.find_element(By.CLASS_NAME, "vacancy_title").text
