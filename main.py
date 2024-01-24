@@ -68,7 +68,6 @@ def main():
             time.sleep(2)
             vacancies = driver.find_elements(By.CLASS_NAME, "vacancy_box")
             count = len(vacancies)
-            logger.info(f"[物件数] {count}件")
 
             for vacancy in vacancies:
                 title = vacancy.find_element(By.CLASS_NAME, "vacancy_title").text
@@ -83,7 +82,7 @@ def main():
                     send_line_notification(send_text)
 
             driver.quit()
-            logger.info("[処理結果] OK")
+            logger.info(f"[処理結果] OK [物件数] {count}件")
             time.sleep(60)
         except Exception as e:
             logger.error(f"[処理結果] NG")
